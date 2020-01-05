@@ -8,7 +8,7 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'home',
         children: [
           {
             path: '',
@@ -18,7 +18,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab2',
+        path: 'gallery',
         children: [
           {
             path: '',
@@ -28,12 +28,32 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab3',
+        path: 'profile',
         children: [
           {
             path: '',
             loadChildren: () =>
               import('../profile/tab3.module').then(m => m.Tab3PageModule)
+          }
+        ]
+      },
+      {
+        path: 'search',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../search/search.module').then(m => m.SearchPageModule)
+          }
+        ]
+      },
+      {
+        path: 'challenges',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../challenges/challenges.module').then(m => m.ChallengesPageModule)
           }
         ]
       },

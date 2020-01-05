@@ -13,6 +13,14 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./profile/tab3.module').then(m => m.Tab3PageModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
+  },
+  {
+    path: 'challenges',
+    loadChildren: () => import('./challenges/challenges.module').then( m => m.ChallengesPageModule)
   }
 ];
 @NgModule({
