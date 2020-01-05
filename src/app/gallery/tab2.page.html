@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Gallery
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- <div class="head_2">
+    <a href="javascript:history.back()">
+      <div class="back_button back_onpages">
+        <div class="back">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </div>
+      </div>
+    </a>
+    <div class="custom_page_name">
+      <a (click)="newpost()">New Post</a>
+      <span class="post_share">
+        <a id='post_b' class="post_button" (click)="create_post()">Post</a>
+      </span>
+
+      <a>New Post</a>
+      <span class="post_share">
+        <a id='post_b' class="post_button">Post</a>
+      </span>
+
+    </div>
+  </div> -->
+
+  <div class="d-flex justify-content-center">
+    <div id="spinner_2" class="spinner-grow text-danger" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div class="container" style="margin-top: 60px;">
+    <form>
+      <!-- <button id='btn1' (click)="popImage($event)" style="display:none;"></button>
+      <input type="file" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
+        (change)="onFileSelected($event)" multiple> -->
+      <button id='btn1' style="display:none;"></button>
+      <input type="file" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+    </form>
+    <!-- <div style="text-align: center;margin-top: 2px;">
+      <a class="post_button cameraButton" (click)="takePhoto()" style="display: none">Take a Photo</a>
+    </div> -->
+    <form>
+      <div class="form-group edit_field">
+        <!-- <textarea class="form-control value" placeholder="Caption.." id="description" name="description"
+          [(ngModel)]="model.description" #description="ngModel" rows="2"></textarea> -->
+
+        <textarea class="form-control value" placeholder="Caption.." id="description" name="description"
+          rows="2"></textarea>
+        <hr class="edit_form_line">
+      </div>
+    </form>
+  </div>
+
+</ion-content>

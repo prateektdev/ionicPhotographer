@@ -1,0 +1,327 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="single_post new_block" id="postScroll">
+    <div class="page_inner">
+      <div class="single_post_user_img">
+        <a><img src="assets/images/1.jpg" /></a>
+      </div>
+      <div class="single_post_user_name" (click)="show_profile_2(post)">
+        <a>Username</a>
+      </div>
+      <div class="single_post_user_time">
+        5 jan 2019
+      </div>
+
+      <div class="nav-item dropdown single_post_setting">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img src="assets/images/single_post_setting.png" />
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item">
+            Delete Post <i class="fa fa-trash" aria-hidden="true"></i>
+          </a>
+          <a class="dropdown-item">
+            Save Post <i class="fa fa-bookmark" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="post">
+        <img src="assets/images/1.jpg" />
+      </div>
+
+      <div class="page_inner">
+        <div class="post_bottom">
+
+          <a class="post_like float-left">
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+            Like
+          </a>
+          <a class="post_dislike float-right">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+            Comment
+          </a>
+
+          <!-- <div class="post_bottom_left">
+            
+          </div>
+          <div class="post_bottom_right">
+            <div class="post_save">
+              <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+            </div>
+            <div class="post_send" style="display:none;">
+              <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+            </div>
+          </div> -->
+          <br />
+          <div class="bottom_2_desc">
+            <div class="post_bottom_like">121 Likes</div>
+            <!-- <div class="post_bottom_dislike">
+              {{ post.dislike }} Dislikes
+            </div> -->
+            <a id="comment_1" class="post_bottom_comments btn-btn-link">
+              View all 83 comments
+            </a>
+          </div>
+
+          <div class="bottom_3_post_content">
+            <b style="font-size: 15px;">Username</b>
+            just a sample picture
+          </div>
+
+          <!-- <div *ngIf="post.commentCount > 2">
+            <ng-container *ngFor="
+                let item of post.comment;
+                let k = index;
+                let first = first
+              ">
+              <div [ngClass]="{
+                  latest_comment: first,
+                  latest_comment_2: !first
+                }" *ngIf="k < 2">
+                <div class="post_bottom_comment_img">
+                  <img src="{{ imageUrl }}{{ item.profile_pic.thumb_image }}" />
+                </div>
+                <div class="latest_comment_content">
+                  <div class="latest_comment_name">{{ item.username }}</div>
+                  <p>{{ item.comment }}</p>
+                </div>
+              </div>
+            </ng-container>
+          </div> -->
+
+          <!-- [ngStyle]="{'margin-top':post.commentCount > 0 ? '24px' : '0px' }" -->
+          <!-- [ngClass]="{ 'mt-4': post.commentCount > 0 }" -->
+          <div class="bottom_4_comment">
+            <div class="custom_div_1">
+              <div class="post_bottom_comment_img">
+                <img src="assets/images/1.jpg" />
+              </div>
+            </div>
+
+            <div class="custom_div_2">
+              <input type="text" id="co_1" class="form-control post_bottom_comment" placeholder="Comment..." />
+              <a>
+                <img class="comment_send" src="assets/images/send_comment_icon.png" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- <div class="single_post new_block" id="postScroll">
+    <div class="page_inner">
+      <div class="single_post_user_img" (click)="show_profile_2(post)">
+        <a><img src="{{ imageUrl }}{{ post.profile_pic.thumb_image }}" />
+        </a>
+      </div>
+      <div class="single_post_user_name" (click)="show_profile_2(post)">
+        <a>{{ post.username }}</a>
+        <img *ngIf="post.vstatus == '1'" class="verifyImg" src="assets/images/verified.png" />
+      </div>
+      <div class="single_post_user_time">
+        {{ post.post_created_date }}
+      </div>
+
+      <div class="nav-item dropdown single_post_setting">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img src="assets/images/single_post_setting.png" />
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a *ngIf="user.id === post.user_id" class="dropdown-item" (click)="delete_post(post.id, post.user_id, i)">
+            Delete Post <i class="fa fa-trash" aria-hidden="true"></i>
+          </a>
+          <a class="dropdown-item" (click)="save_post(post)">
+            Save Post <i class="fa fa-bookmark" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="post.media[0].type == 1; else showVideo" (dblclick)="like_post(post)">
+      <swiper *ngIf="post.media.length > 1; else singleImage"
+        (indexChange)="onIndexChange($event, post.id, post.media)">
+        <div class="post" *ngFor="let item of post.media; let m = index">
+          <img *ngIf="item.thumb_uploads == 'noimage.jpg'; else thumb" class="swiper-slide pt-2 rounded"
+            [src]="postUrl + item.uploads" (load)="onImageLoad($event, item, i)" />
+
+          <ng-template #thumb>
+            <img class="swiper-slide rounded" [src]="postUrl + item.thumb_uploads"
+              (load)="onImageLoad($event, item, i)" />
+          </ng-template>
+        </div>
+      </swiper>
+      <ng-template #singleImage>
+        <div class="post singleImagePost" *ngFor="let item of post.media; let m = index">
+          <img *ngIf="item.thumb_uploads == 'noimage.jpg'; else thumb" class="swiper-slide rounded"
+            [src]="postUrl + item.uploads" (load)="onImageLoad($event, item, i)" />
+          <ng-template #thumb>
+            <img class="swiper-slide rounded" [src]="postUrl + item.thumb_uploads"
+              (load)="onImageLoad($event, item, i)" />
+          </ng-template>
+        </div>
+      </ng-template>
+      <div class="indicator" *ngIf="post.media.length > 1">
+        <ul>
+          <ng-container *ngFor="
+              let item of post.media;
+              let k = index;
+              let first = first
+            ">
+            <li [ngClass]="{ active: first }" id="in_{{ item.post_id }}_{{ k }}"></li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+
+    <ng-template #showVideo>
+      <div (dblclick)="like_post(post)" id="container custom_video">
+        <div class="clickable_2" (click)="play_pause_video(post.media[0])"></div>
+        <video id="v_post_{{ post.media[0].id }}" class="video-fluid z-depth-1 post">
+          <source [src]="post.media[0].url" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </ng-template>
+
+    <div class="page_inner">
+      <div class="post_bottom">
+        <div class="post_bottom_left">
+          <div class="post_like" (click)="like_post(post)">
+            <i [ngClass]="{
+                like: post.user_liked == 'like',
+                'fa-thumbs-up': post.user_liked == 'like'
+              }" class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+          </div>
+          <div class="post_dislike" (click)="dislike_post(post)">
+            <i [ngClass]="{
+                disliked: post.user_liked == 'dislike',
+                'fa-thumbs-down': post.user_liked == 'dislike'
+              }" class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="post_bottom_center">
+          <div *ngFor="let item of post.likedBy; let j = index">
+            <div class="post_bottom_users" (click)="show_profile(post)">
+              <img src="{{ imageUrl }}{{ item.thumb_image }}" />
+            </div>
+          </div>
+        </div>
+        <div class="post_bottom_right">
+          <div class="post_save" (click)="save_post(post)">
+            <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+          </div>
+          <div class="post_send" style="display:none;">
+            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+          </div>
+        </div>
+        <br />
+        <div class="bottom_2_desc">
+          <div class="post_bottom_like">{{ post.like }} Likes</div>
+          <div class="post_bottom_dislike">
+            {{ post.dislike }} Dislikes
+          </div>
+          <a id="comment_{{ post.id }}" class="post_bottom_comments btn-btn-link"
+            *ngIf="post?.commentCount > 0; else nocomment" (click)="show_all_comment(post, post.comment)">
+            View all {{ post.commentCount }} comments
+          </a>
+          <ng-template #nocomment>
+            <div class="post_bottom_comments">
+              No comments found
+            </div>
+          </ng-template>
+        </div>
+
+        <div class="bottom_3_post_content" *ngIf="post.description != ''">
+          <b style="font-size: 15px;">{{ post.username }}</b>
+          {{ post.description }}
+        </div>
+
+        <div *ngIf="post.commentCount > 2">
+          <ng-container *ngFor="
+              let item of post.comment;
+              let k = index;
+              let first = first
+            ">
+            <div [ngClass]="{
+                latest_comment: first,
+                latest_comment_2: !first
+              }" *ngIf="k < 2">
+              <div class="post_bottom_comment_img">
+                <img src="{{ imageUrl }}{{ item.profile_pic.thumb_image }}" />
+              </div>
+              <div class="latest_comment_content">
+                <div class="latest_comment_name">{{ item.username }}</div>
+                <p>{{ item.comment }}</p>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+
+        <div [ngClass]="{ 'mt-4': post.commentCount > 0 }" class="bottom_4_comment">
+          <div class="custom_div_1">
+            <div class="post_bottom_comment_img">
+              <img src="{{ model.profile_pic }}" />
+            </div>
+          </div>
+
+          <div class="custom_div_2">
+            <input type="text" id="co_{{ post.id }}" class="form-control post_bottom_comment"
+              placeholder="Comment..." />
+            <a (click)="add_comment(post.id, i)">
+              <img class="comment_send" src="assets/images/send_comment_icon.png" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="post_bottom_line" *ngIf="!last && i != 1" />
+  </div> -->
+
+
+
+
+  <!-- <ion-card class="welcome-card">
+      <img src="/assets/shapes.svg" alt="" />
+      <ion-card-header>
+        <ion-card-subtitle>Get Started</ion-card-subtitle>
+        <ion-card-title>Welcome to Ionic</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-list lines="none">
+      <ion-list-header>
+        <ion-label>Resources</ion-label>
+      </ion-list-header>
+      <ion-item href="https://ionicframework.com/docs/">
+        <ion-icon slot="start" color="medium" name="book"></ion-icon>
+        <ion-label>Ionic Documentation</ion-label>
+      </ion-item>
+      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
+        <ion-icon slot="start" color="medium" name="build"></ion-icon>
+        <ion-label>Scaffold Out Your App</ion-label>
+      </ion-item>
+      <ion-item href="https://ionicframework.com/docs/layout/structure">
+        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
+        <ion-label>Change Your App Layout</ion-label>
+      </ion-item>
+      <ion-item href="https://ionicframework.com/docs/theming/basics">
+        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
+        <ion-label>Theme Your App</ion-label>
+      </ion-item>
+    </ion-list> -->
+</ion-content>

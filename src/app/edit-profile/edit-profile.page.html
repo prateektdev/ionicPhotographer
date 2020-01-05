@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <IonButtons slot="start">
+      <IonBackButton defaultHref="profile" />
+    </IonButtons> -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>edit-profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="logForm()">
+    <!-- with name set -->
+    <ion-item>
+      <ion-label>Todo</ion-label>
+      <ion-input type="text" name="title"></ion-input>
+    </ion-item>
+
+    <!-- or with standalone set to true -->
+    <ion-item>
+      <ion-label>Todo</ion-label>
+      <ion-input type="text" name='disc'></ion-input>
+    </ion-item>
+
+    <button ion-button type="submit" block>Add Todo</button>
+  </form>
+</ion-content>

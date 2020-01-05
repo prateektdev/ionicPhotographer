@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="my_profile">
+    <div class="dark_page">
+      <!-- [ngStyle]="getMyStyles()" -->
+      <div class="custom_banner my_profile_bg newBg">
+        <div class="page_inner">
+          <a class="custom_profile_bg_edit" (click)="newTrigger()">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </a>
+
+          <input class="fileUpload" type="file" accept="image/*" id="bgImage" (change)="onBgSelected($event)"
+            #bgImage />
+        </div>
+      </div>
+      <div class="page_inner">
+        <div class="custom_profile_img">
+          <img id="profile_pic" src="assets/images/1.jpg" />
+        </div>
+        <a [routerLink]="['/edit-profile']">
+          <div class="custom_edit_profile">
+            Edit profile
+          </div>
+        </a>
+        <div class="profile_content">
+          <div class="profile_heading">Name <br /></div>
+          Username <br />
+          <!-- <a class="verifyLink" data-toggle="modal" data-target="#myModel2">
+            Verify your account?
+          </a> -->
+          <div class="profile_content_dec">
+            <!-- *ngIf="model.profession != ''" -->
+            <i class="fa fa-user" style="font-size: 16px;" aria-hidden="true"></i>Web developer<br />
+            <!-- *ngIf="model.profession != ''" -->
+            <i class="fa fa-globe" style="font-size: 16px;" aria-hidden="true"></i>www.dummy.com<br />
+            <i class="fa fa-map-marker" aria-hidden="true"></i>New Delhi<br />
+            <div class="custom_follow">
+              <span class="custom_follwers" (click)="mypost()">
+                <span class="white1">25</span> Posts
+              </span>
+              <span class="custom_follwers" (click)="showFollower()">
+                <span class="white1">78</span>
+                Following
+              </span>
+              <span class="custom_follwers" (click)="showFollowing()">
+                <span class="white1">58</span>
+                Followers
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
