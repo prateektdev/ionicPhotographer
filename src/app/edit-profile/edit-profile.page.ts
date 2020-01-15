@@ -9,6 +9,8 @@ export class EditProfilePage implements OnInit {
 
   constructor() { }
 
+  public model = {};
+
   ngOnInit() {
   }
 

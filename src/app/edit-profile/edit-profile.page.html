@@ -1,29 +1,128 @@
 <ion-header>
   <ion-toolbar>
-    <!-- <IonButtons slot="start">
-      <IonBackButton defaultHref="profile" />
-    </IonButtons> -->
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/profile"></ion-back-button>
-    </ion-buttons>
-    <ion-title>edit-profile</ion-title>
+    <ion-title>
+      Edit Profile
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form (ngSubmit)="logForm()">
-    <!-- with name set -->
-    <ion-item>
-      <ion-label>Todo</ion-label>
-      <ion-input type="text" name="title"></ion-input>
-    </ion-item>
+  <div class="my_profile">
+    <div class="dark_page">
+      <!-- [ngStyle]="getMyStyles()" -->
+      <div class="custom_banner my_profile_bg newBg">
+        <div class="page_inner">
+          <a class="custom_profile_bg_edit" (click)="newTrigger()">
+            <i class="fa fa-camera" style="left: 5px !important;" aria-hidden="true"></i>
+          </a>
 
-    <!-- or with standalone set to true -->
-    <ion-item>
-      <ion-label>Todo</ion-label>
-      <ion-input type="text" name='disc'></ion-input>
-    </ion-item>
+          <div class="custom_profile_img profileImg">
+            <img id="profile_pic" src="assets/images/1.jpg" />
+          </div>
 
-    <button ion-button type="submit" block>Add Todo</button>
-  </form>
+          <input class="fileUpload" type="file" accept="image/*" id="bgImage" (change)="onBgSelected($event)"
+            #bgImage />
+        </div>
+      </div>
+      <div style="background: #fe1743;">
+        <div class="page_inner">
+          <form (ngSubmit)="register()" #rform="ngForm">
+
+            <div class="form_icon">
+              <i class="fa fa-user-o" aria-hidden="true"></i>
+            </div>
+            <div class="field">
+              <input class="effect-3" type="text" placeholder="Username" name="username" id="username"
+                [(ngModel)]="model.username" #username="ngModel" required>
+              <span class="focus-border"></span>
+            </div>
+            <div *ngIf="username.invalid && (username.dirty || username.touched)">
+              <div class="required" *ngIf="username?.errors.required">Username is required.</div>
+            </div>
+
+            <div class="form_icon">
+              <i class="fa fa-user-o" aria-hidden="true"></i>
+            </div>
+            <div class="field">
+              <input class="effect-3" type="text" placeholder="Name" name="name" id="name" [(ngModel)]="model.name"
+                #name="ngModel" required>
+              <span class="focus-border"></span>
+            </div>
+            <div *ngIf="name.invalid && (name.dirty || name.touched)">
+              <div class="required" *ngIf="name?.errors.required">Name is required.</div>
+            </div>
+
+            <div class="form_icon">
+              <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            </div>
+            <div class="field">
+              <input class="effect-3" type="email" placeholder="Email" name="email" id="email" [(ngModel)]="model.email"
+                #email="ngModel" required>
+              <span class="focus-border"></span>
+            </div>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+              <div class="required" *ngIf="email?.errors.required">Email is required.</div>
+            </div>
+
+            <div class="form_icon">
+              <i class="fa fa-lock" aria-hidden="true"></i>
+            </div>
+            <div class="field">
+              <input class="effect-3" type="password" placeholder="Password" name="password" id="password"
+                [(ngModel)]="model.password" #password="ngModel" required>
+              <span class="focus-border"></span>
+            </div>
+            <div *ngIf="password.invalid && (password.dirty || password.touched)">
+              <div class="required" *ngIf="password?.errors.required">Password is required.</div>
+            </div>
+
+            <div class="form_icon">
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </div>
+            <div class="field">
+              <input class="effect-3" type="text" placeholder="About me" name="bio" id="bio" maxlength="70"
+                [(ngModel)]="model.bio" #bio="ngModel">
+              <span class="focus-border"></span>
+            </div>
+
+            <!-- <div class="field mt-3">
+
+              <div class="custom-control custom-radio custom-control-inline">
+                <label class="custom-control-label" style="color: #d7a7a7;" for="male">Public</label>
+                <input type="radio" class="custom-control-input" value="male" id="male" name="gender" required>
+              </div>
+
+
+              <div class="custom-control custom-radio custom-control-inline">
+                <label class="custom-control-label" style="color: #d7a7a7;" for="female">Private</label>
+                <input type="radio" class="custom-control-input" value="female" id="female" name="gender" required>
+              </div>
+            </div> -->
+
+            <div class="field mt-3" id="gen">
+              <!-- Default inline 1-->
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" value="male" id="male" name="gender"
+                  [(ngModel)]="model.gender" required>
+                <label class="custom-control-label" style="color: #d7a7a7;" for="male">Public</label>
+              </div>
+
+              <!-- Default inline 2-->
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" value="female" id="female"
+                  name="inlineDefaultRadiosExample" name="gender" [(ngModel)]="model.gender" required>
+                <label class="custom-control-label" style="color: #d7a7a7;" for="female">Private</label>
+              </div>
+              <span class="focus-border"></span>
+            </div>
+
+
+            <div class="center_div">
+              <button class="btn btn-success signup_btn" [disabled]="!rform.form.valid">Sign Up </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

@@ -1828,7 +1828,7 @@ ul.tabs li.current {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-color: #fe1743;
+  background-color: #f2e3e6;
 }
 
 .single_bio_2 {
@@ -2419,4 +2419,12 @@ ul.tabs li.current {
 .fileUpload {
   display: none;
   position: absolute;
+}
+
+.profileImg{
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 0 auto !important;
+  top: 16px;
 }
