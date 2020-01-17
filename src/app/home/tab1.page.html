@@ -9,7 +9,7 @@
 <ion-content>
 
   <div class="single_post new_block" id="postScroll">
-    <div class="page_inner">
+    <div class="page_inner pt-2">
       <div class="single_post_user_img">
         <a><img src="assets/images/1.jpg" /></a>
       </div>
@@ -98,6 +98,119 @@
               </div>
             </ng-container>
           </div> -->
+
+          <!-- [ngStyle]="{'margin-top':post.commentCount > 0 ? '24px' : '0px' }" -->
+          <!-- [ngClass]="{ 'mt-4': post.commentCount > 0 }" -->
+          <div class="bottom_4_comment">
+            <div class="custom_div_1">
+              <div class="post_bottom_comment_img">
+                <img src="assets/images/1.jpg" />
+              </div>
+            </div>
+
+            <div class="custom_div_2">
+              <input type="text" id="co_1" class="form-control post_bottom_comment" placeholder="Comment..." />
+              <a>
+                <img class="comment_send" src="assets/images/send_comment_icon.png" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="single_post new_block" id="postScroll">
+    <div class="page_inner pt-2">
+      <div class="single_post_user_img">
+        <a><img src="assets/images/1.jpg" /></a>
+      </div>
+      <div class="single_post_user_name" (click)="show_profile_2(post)">
+        <a>Username</a>
+      </div>
+      <div class="single_post_user_time">
+        5 jan 2019
+      </div>
+
+      <div class="nav-item dropdown single_post_setting">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img src="assets/images/single_post_setting.png" />
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item">
+            Delete Post <i class="fa fa-trash" aria-hidden="true"></i>
+          </a>
+          <a class="dropdown-item">
+            Save Post <i class="fa fa-bookmark" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="post">
+        <img src="assets/images/1.jpg" />
+      </div>
+
+      <div class="page_inner">
+        <div class="post_bottom">
+
+          <a class="post_like float-left">
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+            Like
+          </a>
+          <a class="post_dislike float-right">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+            Comment
+          </a>
+
+          <!-- <div class="post_bottom_left">
+              
+            </div>
+            <div class="post_bottom_right">
+              <div class="post_save">
+                <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+              </div>
+              <div class="post_send" style="display:none;">
+                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+              </div>
+            </div> -->
+          <br />
+          <div class="bottom_2_desc">
+            <div class="post_bottom_like">121 Likes</div>
+            <!-- <div class="post_bottom_dislike">
+                {{ post.dislike }} Dislikes
+              </div> -->
+            <a id="comment_1" class="post_bottom_comments btn-btn-link">
+              View all 83 comments
+            </a>
+          </div>
+
+          <div class="bottom_3_post_content">
+            <b style="font-size: 15px;">Username</b>
+            just a sample picture
+          </div>
+
+          <!-- <div *ngIf="post.commentCount > 2">
+              <ng-container *ngFor="
+                  let item of post.comment;
+                  let k = index;
+                  let first = first
+                ">
+                <div [ngClass]="{
+                    latest_comment: first,
+                    latest_comment_2: !first
+                  }" *ngIf="k < 2">
+                  <div class="post_bottom_comment_img">
+                    <img src="{{ imageUrl }}{{ item.profile_pic.thumb_image }}" />
+                  </div>
+                  <div class="latest_comment_content">
+                    <div class="latest_comment_name">{{ item.username }}</div>
+                    <p>{{ item.comment }}</p>
+                  </div>
+                </div>
+              </ng-container>
+            </div> -->
 
           <!-- [ngStyle]="{'margin-top':post.commentCount > 0 ? '24px' : '0px' }" -->
           <!-- [ngClass]="{ 'mt-4': post.commentCount > 0 }" -->
