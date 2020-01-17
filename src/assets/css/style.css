@@ -343,8 +343,8 @@ input[type="text"] {
 }
 
 .new_block {
-  margin-bottom: 40px;
-  margin-top: 10px;
+  margin-bottom: 8px;
+  background: #dfdfdf;
 }
 
 .header_line {
@@ -2269,7 +2269,7 @@ ul.tabs li.current {
 }
 
 .custom_banner {
-  height: 160px;
+  height: 25vh;
 }
 
 .custom_banner img {
@@ -2427,4 +2427,29 @@ ul.tabs li.current {
   left: 0;
   margin: 0 auto !important;
   top: 16px;
+}
+
+.formDiv{
+  background: #fe1743; 
+  height: 75vh;
+}
+
+.map {
+  margin: 0 auto;
+  width: 95%;
+  height: 270px;
+}
+
+#floating-panel {
+  position: absolute;
+  top: 10px;
+  left: 25%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: "Roboto", "sans-serif";
+  line-height: 30px;
+  padding-left: 10px;
 }
