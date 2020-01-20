@@ -39,6 +39,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.Keyboard"
       ]
+    },
+    {
+      "id": "cordova-plugin-telerik-imagepicker.ImagePicker",
+      "file": "plugins/cordova-plugin-telerik-imagepicker/www/imagepicker.js",
+      "pluginId": "cordova-plugin-telerik-imagepicker",
+      "clobbers": [
+        "plugins.imagePicker"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -47,6 +55,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-ionic-webview": "4.1.3",
-    "cordova-plugin-ionic-keyboard": "2.2.0"
+    "cordova-plugin-ionic-keyboard": "2.2.0",
+    "cordova-plugin-telerik-imagepicker": "2.3.3"
   };
 });
