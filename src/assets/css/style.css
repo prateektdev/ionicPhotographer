@@ -2453,3 +2453,24 @@ ul.tabs li.current {
   line-height: 30px;
   padding-left: 10px;
 }
+
+.subtitle {
+  color:grey;
+  font-size: 14px;
+}
+
+.brandName{
+  color:red;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.enterDiv{
+  background:#dfdfdf;
+  border: 1px solid #bbb;
+  color:#3232ea;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 3px;
+  font-weight: bold;
+}
