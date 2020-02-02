@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ladder-board</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="liked">
+
+    <ul class="tabs" id="tabs">
+      <li class="tab-link current" [ngClass]="{'current': tab=='tab-1'}" (click)="change_class('tab-1')"
+        data-tab="tab-1">
+        NETWORK</li>
+      <li class="tab-link" [ngClass]="{'current': tab=='tab-2'}" (click)="change_class('tab-2')" data-tab="tab-2">GLOBAL
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="page_inner">
+    <div class="tab_content">
+
+      <div id="tab-1" class="tab-content current tabs_li">
+        
+        <div class="body_2">
+          <div *ngFor="let item of data; let i = index">
+            <div class="liked_user">
+              <div class="indexClass">
+                {{i+1}}
+              </div>
+              <div class="liked_user_img">
+                <img src="assets/images/1.jpg">
+              </div>
+              <div class="liked_user_name">
+                <div class="liked_name">
+                  {{item.name}}
+                </div>
+                
+              </div>
+
+              <div class="btn btn-success follow_btn_2">
+                123456
+              </div>
+      
+            </div>
+          </div>
+        </div>
+
+        <ng-template #nolike>
+          <div class="body_2 disliked">
+            <h4 class="text-center">No Likes</h4>
+          </div>
+        </ng-template>
+      </div>
+
+      <div id="tab-2" class="tab-content tabs_li">
+
+        <div class="body_2">
+          <div *ngFor="let item of data; let i = index">
+            <div class="liked_user">
+              <div class="indexClass">
+                {{i+1}}
+              </div>
+              <div class="liked_user_img">
+                <img src="assets/images/1.jpg">
+              </div>
+              <div class="liked_user_name">
+                <div class="liked_name">
+                  {{item.name}}
+                </div>
+                
+              </div>
+
+              <div class="btn btn-success follow_btn_2">
+                123456
+              </div>
+      
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="body_2" *ngIf="likedBy != null && likes != 'nolike';else nolikeBy">
+          <div *ngFor="let item of likedBy">
+            <div class="liked_user" *ngIf="item.id!=user.id">
+              <div class="liked_user_img">
+                <img src="{{imageUrl}}{{item.profile_pic.thumb_image}}">
+              </div>
+              <div class="liked_user_name">
+                <div class="liked_name">
+                  {{item.username}}
+                </div>
+                <div class="liked_username">
+                  {{item.username}} liked your photo
+                </div>
+              </div>
+              <button (click)="follow_user(item)" class="btn btn-success follow_btn_1"
+                [ngClass]="{'follow_btn_1': item.follow_status=='1','follow_btn_2':item.follow_status=='0'}">
+                {{item.text}}
+              </button>
+            </div>
+          </div>
+        </div> -->
+
+        <ng-template #nolikeBy>
+          <div class="body_2 disliked">
+            <h4 class="text-center">No one Liked your Post</h4>
+          </div>
+        </ng-template>
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>

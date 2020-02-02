@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'challenges',
     loadChildren: () => import('./challenges/challenges.module').then( m => m.ChallengesPageModule)
+  },
+  {
+    path: 'ladder-board',
+    loadChildren: () => import('./ladder-board/ladder-board.module').then( m => m.LadderBoardPageModule)
   }
 ];
 @NgModule({

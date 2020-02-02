@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-declare function initMap();
+declare function initMap(): any;
 
 @Component({
   selector: 'app-search',
